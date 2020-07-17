@@ -1,0 +1,40 @@
+{
+  "name": "react-dismissible",
+  "version": "1.3.0",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "license": "Apache-2.0",
+  "keywords": [
+    "react"
+  ],
+  "bugs": {
+    "url": "https://github.com/tinacms/react-dismissible/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tinacms/react-dismissible.git"
+  },
+  "files": [
+    "README.md",
+    "build"
+  ],
+  "scripts": {
+    "watch": "tinacms-scripts watch",
+    "build": "tinacms-scripts build",
+    "dev": "tinacms-scripts dev",
+    "test": "jest --passWithNoTests",
+    "docs": "npx typedoc"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^10.4.7",
+    "@tinacms/scripts": "^0.1.13",
+    "@types/jest": "^26.0.4",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "jest": "^26.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "ts-jest": "^26.1.3",
+    "typescript": "^3.9.7"
+  }
+}
