@@ -110,6 +110,7 @@ export function useDismissible({
           onDismiss(event)
         }
       }
+    }
 
     const handleEscape = (event: KeyboardEvent) => {
       if (disabled) return
