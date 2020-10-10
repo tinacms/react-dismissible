@@ -104,10 +104,12 @@ export function useDismissible({
         }
 
         let haveSelection = window.getSelection().toString().length > 0
-        
-        onDismiss(event)
+        if (window.preventDismissibleClose && haveSelection) {
+          return
+        } else {
+          onDismiss(event)
+        }
       }
-    }
 
     const handleEscape = (event: KeyboardEvent) => {
       if (disabled) return
