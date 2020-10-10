@@ -102,6 +102,9 @@ export function useDismissible({
         if (!allowClickPropagation) {
           stopAndPrevent(event)
         }
+
+        let haveSelection = window.getSelection().toString().length > 0
+        
         onDismiss(event)
       }
     }
