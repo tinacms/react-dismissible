@@ -126,6 +126,8 @@ export function useDismissible({
     if (click) {
       documents.forEach(document =>
         document.body.addEventListener('click', handleDocumentClick)
+          area.current.addEventListener('mousedown', handleMouseDown)
+        }
       )
     }
 
