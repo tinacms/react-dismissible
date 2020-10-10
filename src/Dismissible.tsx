@@ -149,7 +149,9 @@ export function useDismissible({
     return () => {
       documents.forEach(document => {
         document.body.removeEventListener('click', handleDocumentClick)
+        area.current.removeEventListener('mousedown', handleMouseDown)
         document.removeEventListener('keydown', handleEscape)
+        window.removeEventListener('mouseup', handleMuseUp)
       })
     }
   }, [click, customDocument, escape, disabled, onDismiss])
