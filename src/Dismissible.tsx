@@ -102,7 +102,15 @@ export function useDismissible({
         if (!allowClickPropagation) {
           stopAndPrevent(event)
         }
-        onDismiss(event)
+
+        let haveSelection = window.getSelection().toString().length > 0
+        if (window.preventDismissibleClose && haveSelection) {
+          window.clickStartedInDismissible = false
+          window.preventDismissibleClose = false
+          return
+        } else {
+          onDismiss(event)
+        }
       }
     }
 
@@ -115,9 +123,20 @@ export function useDismissible({
       }
     }
 
+    const handleMouseDown = (event: MouseEvent) => {
+      window.clickStartedInDismissible = area.current.contains(event.target)
+    }
+
+    const handleMuseUp = (event: MouseEvent) => {
+      window.preventDismissibleClose = area.current && !area.current.contains(event.target) && window.clickStartedInDismissible
+    }
+
     if (click) {
-      documents.forEach(document =>
-        document.body.addEventListener('click', handleDocumentClick)
+      documents.forEach(document => {
+          document.body.addEventListener('click', handleDocumentClick)
+          area.current.addEventListener('mousedown', handleMouseDown)
+          window.addEventListener('mouseup', handleMuseUp)
+        }
       )
     }
 
@@ -130,7 +149,9 @@ export function useDismissible({
     return () => {
       documents.forEach(document => {
         document.body.removeEventListener('click', handleDocumentClick)
+        area.current.removeEventListener('mousedown', handleMouseDown)
         document.removeEventListener('keydown', handleEscape)
+        window.removeEventListener('mouseup', handleMuseUp)
       })
     }
   }, [click, customDocument, escape, disabled, onDismiss])
