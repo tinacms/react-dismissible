@@ -105,6 +105,8 @@ export function useDismissible({
 
         let haveSelection = window.getSelection().toString().length > 0
         if (window.preventDismissibleClose && haveSelection) {
+          window.clickStartedInDismissible = false
+          window.preventDismissibleClose = false
           return
         } else {
           onDismiss(event)
