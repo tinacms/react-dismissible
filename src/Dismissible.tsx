@@ -119,6 +119,10 @@ export function useDismissible({
       window.clickStartedInDismissible = area.current.contains(event.target)
     }
 
+    const handleMuseUp = (event: MouseEvent) => {
+      window.preventDismissibleClose = area.current && !area.current.contains(event.target) && window.clickStartedInDismissible
+    }
+
     if (click) {
       documents.forEach(document =>
         document.body.addEventListener('click', handleDocumentClick)
