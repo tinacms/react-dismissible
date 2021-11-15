@@ -19,6 +19,9 @@ limitations under the License.
 import * as React from 'react'
 import { useRef, useEffect } from 'react'
 
+/**
+ * @deprecated This package is no longer being maintained
+ */
 export interface Props {
   /**
    * The function that called in response to a dismissal.
@@ -54,6 +57,9 @@ export interface Props {
   allowClickPropagation?: boolean
 }
 
+/**
+ * @deprecated This package is no longer being maintained
+ */
 export const Dismissible: React.FC<Props> = ({
   onDismiss,
   escape,
@@ -74,6 +80,9 @@ export const Dismissible: React.FC<Props> = ({
   return <div ref={area} {...props} />
 }
 
+/**
+ * @deprecated This package is no longer being maintained
+ */
 export function useDismissible({
   onDismiss,
   escape = false,
