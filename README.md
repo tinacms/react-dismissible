@@ -1,3 +1,7 @@
+# > Deprecation Warming!
+> There will be no more updates to this package going forth.
+> We have switched to using an internal version of this package (in the TinaCMS) monorepo and we will slowly phase out its usage there as well.
+
 Make your components dismissible!
 
 ## Usage
